@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dermethics | Luxury Aesthetic Clinic — DHA Phase 5, Lahore</title>
+<meta name="description" content="Dermethics is a luxury aesthetic medicine clinic in DHA Phase 5, Lahore, led by Dr. Raza. Laser hair removal, HydraFacial, skin & facial treatments and advanced aesthetic care."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: "#211A73",
+                    "primary-deep": "#160F55",
+                    secondary: "#E9E8F3",
+                    accent: "#56B7B0",
+                    "accent-deep": "#3E948E",
+                    neutral: "#252525",
+                    "neutral-muted": "#615F72",
+                    surface: "#FFFFFF",
+                    "surface-alt": "#FBFAFC",
+                },
+                fontFamily: {
+                    display: ["'Playfair Display'", "serif"],
+                    body: ["Inter", "sans-serif"],
+                },
+                borderRadius: {
+                    sm: "2px",
+                    DEFAULT: "2px",
+                    md: "6px",
+                    lg: "14px",
+                    xl: "28px",
+                    "2xl": "40px",
+                    full: "999px",
+                },
+                spacing: {
+                    gutter: "24px",
+                    "margin-mobile": "20px",
+                    "section-md": "88px",
+                    "section-lg": "132px",
+                },
+                maxWidth: {
+                    "container-max": "1280px",
+                },
+                boxShadow: {
+                    soft: "0 4px 24px rgba(33,26,115,0.08)",
+                    lifted: "0 20px 60px rgba(33,26,115,0.16)",
+                },
+            },
+        },
+    };
+</script>
+<style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #FFFFFF; }
+
+    .glass-nav {
+        transition: background-color .4s ease, box-shadow .4s ease, padding .4s ease;
+        background-color: rgba(255,255,255,0);
+    }
+    .glass-nav.scrolled {
+        background-color: rgba(255,255,255,0.88);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 1px 0 rgba(33,26,115,0.08);
+    }
+
+    .image-hover-zoom { overflow: hidden; }
+    .image-hover-zoom img { transition: transform 1s cubic-bezier(.2,.7,.3,1); }
+    .image-hover-zoom:hover img { transform: scale(1.06); }
+
+    .parallax-bg {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    @media (max-width: 768px) {
+        .parallax-bg { background-attachment: scroll; }
+    }
+
+    /* Signature motif: a slow-turning focus ring, echoing a dermatoscope's loupe */
+    .focus-ring {
+        border: 1px solid rgba(86,183,176,0.55);
+        border-radius: 999px;
+        pointer-events: none;
+    }
+    .focus-ring::before {
+        content: "";
+        position: absolute;
+        inset: -14px;
+        border: 1px dashed rgba(86,183,176,0.3);
+        border-radius: 999px;
+        animation: spin 40s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .underline-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .underline-eyebrow::before {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: #56B7B0;
+        display: inline-block;
+    }
+
+    /* FAQ accordion */
+    .faq-panel { max-height: 0; overflow: hidden; transition: max-height .45s cubic-bezier(.2,.7,.3,1); }
+    .faq-item.open .faq-panel { max-height: 320px; }
+    .faq-icon { transition: transform .35s ease; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* Modal */
+    #booking-modal { transition: opacity .35s ease; }
+    #booking-modal[data-state="closed"] { opacity: 0; pointer-events: none; }
+    #booking-modal[data-state="open"] { opacity: 1; pointer-events: auto; }
+    #booking-modal .modal-panel { transition: transform .4s cubic-bezier(.2,.7,.3,1), opacity .4s ease; }
+    #booking-modal[data-state="closed"] .modal-panel { transform: translateY(24px) scale(.98); opacity: 0; }
+    #booking-modal[data-state="open"] .modal-panel { transform: translateY(0) scale(1); opacity: 1; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .focus-ring::before { animation: none; }
+        .image-hover-zoom img { transition: none; }
+    }
+
+    :focus-visible {
+        outline: 2px solid #56B7B0;
+        outline-offset: 3px;
+    }
+
+    .mobile-panel { transition: max-height .4s cubic-bezier(.2,.7,.3,1), opacity .3s ease; }
+</style>
+</head>
+<body class="bg-surface text-neutral font-body antialiased overflow-x-hidden">
+
+<!-- ============ TOP NAV ============ -->
+<header class="fixed top-0 w-full z-50 glass-nav py-5" id="main-nav">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<a href="#home" class="font-display text-2xl md:text-[26px] tracking-tight text-primary">Dermethics</a>
+
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-primary font-medium border-b border-primary pb-1 text-sm tracking-wide" href="#home">Home</a>
+<a class="nav-link text-neutral-muted hover:text-primary transition-colors duration-300 text-sm tracking-wide" href="#about">About</a>
+<a class="nav-link text-neutral-muted hover:text-primary transition-colors duration-300 text-sm tracking-wide" href="#treatments">Treatments</a>
+<a class="nav-link text-neutral-muted hover:text-primary transition-colors duration-300 text-sm tracking-wide" href="#results">Results</a>
+<a class="nav-link text-neutral-muted hover:text-primary transition-colors duration-300 text-sm tracking-wide" href="#faqs">FAQs</a>
+</nav>
+
+<div class="hidden md:block">
+<button data-open-modal class="bg-primary text-white px-7 py-3 rounded hover:bg-primary-deep transition-colors duration-300 text-sm font-medium tracking-wide shadow-soft">
+    Book Consultation
+</button>
+</div>
+
+<button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-panel" class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl" id="mobile-menu-icon">menu</span>
+</button>
+</div>
+
+<!-- Mobile menu panel -->
+<div id="mobile-panel" class="mobile-panel md:hidden overflow-hidden max-h-0 opacity-0 bg-white/95 backdrop-blur-md border-t border-secondary mt-5">
+<nav class="flex flex-col gap-1 px-margin-mobile py-6">
+<a class="mobile-link py-3 text-primary font-medium border-b border-secondary" href="#home">Home</a>
+<a class="mobile-link py-3 text-neutral border-b border-secondary" href="#about">About</a>
+<a class="mobile-link py-3 text-neutral border-b border-secondary" href="#treatments">Treatments</a>
+<a class="mobile-link py-3 text-neutral border-b border-secondary" href="#results">Results</a>
+<a class="mobile-link py-3 text-neutral border-b border-secondary" href="#faqs">FAQs</a>
+<button data-open-modal class="mt-5 bg-primary text-white px-7 py-3.5 rounded font-medium text-sm w-full">Book Consultation</button>
+</nav>
+</div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="relative h-screen min-h-[640px] w-full flex items-center justify-center pt-20">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" alt="Close portrait of a woman with soft, radiant, glowing skin in warm natural light"
+     src="https://images.unsplash.com/photo-1581182800629-7d90925ad072?auto=format&fit=crop&w=2000&q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-white/40"></div>
+<div class="absolute inset-0 bg-primary/10"></div>
+</div>
+
+<div class="relative z-10 text-center px-margin-mobile md:px-gutter max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="900">
+<p class="underline-eyebrow font-body text-xs font-semibold text-accent-deep tracking-[0.2em] uppercase mb-6 justify-center">Aesthetic Medicine &amp; Skin Care</p>
+<h1 class="font-display text-[40px] leading-[1.15] md:text-[68px] md:leading-[1.08] text-primary mb-8 text-balance">
+    Reveal Your Most<br class="hidden md:block"/> Confident Skin
+</h1>
+<p class="text-neutral-muted text-base md:text-lg mb-10 max-w-xl mx-auto">Medically led, artfully delivered — personalised aesthetic care in DHA Phase 5, Lahore.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button data-open-modal class="bg-primary text-white px-9 py-4 rounded hover:bg-primary-deep transition-colors duration-300 font-medium shadow-lifted">
+    Book a Consultation
+</button>
+<a href="#treatments" class="border border-primary/30 text-primary px-9 py-4 rounded hover:bg-primary/5 transition-colors duration-300 font-medium">
+    Explore Treatments
+</a>
+</div>
+</div>
+
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2 text-primary/50" data-aos="fade-in" data-aos-delay="600">
+<span class="text-[11px] tracking-[0.2em] uppercase">Scroll</span>
+<span class="material-symbols-outlined text-lg animate-bounce">arrow_downward</span>
+</div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="py-section-md md:py-section-lg px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-gutter items-center">
+<div class="md:col-span-5" data-aos="fade-right">
+<p class="underline-eyebrow font-body text-xs font-semibold text-accent-deep tracking-[0.2em] uppercase mb-6">Who We Are</p>
+<h2 class="font-display text-[30px] md:text-[36px] leading-tight text-primary mb-6">Where Medical Expertise Meets Aesthetic Precision</h2>
+<p class="text-neutral-muted text-base md:text-lg leading-relaxed mb-6">
+    At Dermethics, we believe true beauty is an expression of health. Led by specialised medical professionals, our clinic offers a sanctuary where advanced clinical treatments are delivered with the care and subtlety of a luxury experience. Dr. Raza and our team are dedicated to personalised, results-driven care.
+</p>
+<a class="text-primary font-medium inline-flex items-center gap-2 hover:gap-4 transition-all duration-300" href="#treatments">
+    Discover Our Treatments <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+
+<div class="md:col-span-7 relative" data-aos="fade-left" data-aos-delay="100">
+<div class="image-hover-zoom rounded-2xl aspect-[4/3] w-full border-4 border-white shadow-lifted relative">
+<img alt="Serene, minimalist marble reception area of a modern luxury clinic" class="w-full h-full object-cover"
+     src="https://images.unsplash.com/photo-1758448500688-3ababa93fd67?auto=format&fit=crop&w=1400&q=80"/>
+</div>
+<div class="absolute -bottom-10 -left-10 w-[46%] aspect-square hidden md:block rounded-2xl overflow-hidden border-4 border-white shadow-lifted">
+<img alt="Macro close-up of skincare serum and cream swirls, representing precision formulation" class="w-full h-full object-cover"
+     src="https://images.unsplash.com/photo-1694147185194-f91cd8a50680?auto=format&fit=crop&w=900&q=80"/>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ CREDENTIALS ============ -->
+<section class="bg-secondary py-16 md:py-20 px-margin-mobile md:px-gutter">
+<div class="max-w-container-max mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-8 divide-x-0 md:divide-x md:divide-primary/10 text-center">
+<div class="px-4" data-aos="fade-up">
+<p class="font-display text-[34px] md:text-[40px] text-primary mb-1">16+</p>
+<p class="text-[11px] font-semibold text-neutral-muted tracking-[0.15em] uppercase">Years Experience</p>
+</div>
+<div class="px-4" data-aos="fade-up" data-aos-delay="80">
+<p class="font-display text-[34px] md:text-[40px] text-primary mb-1">AAM</p>
+<p class="text-[11px] font-semibold text-neutral-muted tracking-[0.15em] uppercase">American Board Certified</p>
+</div>
+<div class="px-4" data-aos="fade-up" data-aos-delay="160">
+<p class="font-display text-[34px] md:text-[40px] text-primary mb-1">K-Cert</p>
+<p class="text-[11px] font-semibold text-neutral-muted tracking-[0.15em] uppercase">Korean Certified</p>
+</div>
+<div class="px-4" data-aos="fade-up" data-aos-delay="240">
+<span class="material-symbols-outlined text-3xl text-accent-deep mb-1 block">location_on</span>
+<p class="text-[11px] font-semibold text-neutral-muted tracking-[0.15em] uppercase">DHA Phase 5, Lahore</p>
+</div>
+</div>
+</section>
+
+<!-- ============ TREATMENTS ============ -->
+<section id="treatments" class="py-section-md md:py-section-lg px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="text-center mb-16" data-aos="fade-up">
+<p class="underline-eyebrow font-body text-xs font-semibold text-accent-deep tracking-[0.2em] uppercase mb-5 justify-center">Our Treatments</p>
+<h2 class="font-display text-[30px] md:text-[36px] text-primary mb-4">Thoughtful Care for Your Skin &amp; Confidence</h2>
+<p class="text-neutral-muted text-base md:text-lg max-w-2xl mx-auto">Tailored aesthetic solutions designed to enhance your natural features and restore skin vitality.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+<!-- Card 1 -->
+<button data-open-modal data-treatment="Laser Hair Removal" class="group text-left block border border-secondary bg-white rounded-xl overflow-hidden hover:shadow-lifted transition-shadow duration-300" data-aos="fade-up">
+<div class="aspect-[4/5] image-hover-zoom relative">
+<img alt="Close-up of smooth, even-toned skin, representing the results of laser hair removal" class="w-full h-full object-cover"
+     src="https://images.unsplash.com/photo-1581182815808-b6eb627a8798?auto=format&fit=crop&w=800&q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<h3 class="font-display text-xl text-white mb-2">Laser Hair Removal</h3>
+<p class="text-white/85 text-sm mb-4 line-clamp-2">Advanced laser technology for smooth, lasting results.</p>
+<span class="text-white flex items-center gap-2 group-hover:gap-4 transition-all duration-300 text-sm font-medium">Book This <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+</button>
+
+<!-- Card 2 -->
+<button data-open-modal data-treatment="HydraFacial" class="group text-left block border border-secondary bg-white rounded-xl overflow-hidden hover:shadow-lifted transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+<div class="aspect-[4/5] image-hover-zoom relative">
+<img alt="Facial treatment being applied with a brush, cleansing and hydrating the skin" class="w-full h-full object-cover"
+     src="https://images.unsplash.com/photo-1761718209835-c8586b7dcac0?auto=format&fit=crop&w=800&q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<h3 class="font-display text-xl text-white mb-2">HydraFacial</h3>
+<p class="text-white/85 text-sm mb-4 line-clamp-2">Deep cleansing and hydration for a radiant glow.</p>
+<span class="text-white flex items-center gap-2 group-hover:gap-4 transition-all duration-300 text-sm font-medium">Book This <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+</button>
+
+<!-- Card 3 -->
+<button data-open-modal data-treatment="Skin & Facial" class="group text-left block border border-secondary bg-white rounded-xl overflow-hidden hover:shadow-lifted transition-shadow duration-300 mt-0 lg:mt-8" data-aos="fade-up" data-aos-delay="200">
+<div class="aspect-[4/5] image-hover-zoom relative">
+<img alt="Woman with clear, healthy skin gently touching her face" class="w-full h-full object-cover"
+     src="https://images.unsplash.com/photo-1728727267814-792db55ce678?auto=format&fit=crop&w=800&q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<h3 class="font-display text-xl text-white mb-2">Skin &amp; Facial</h3>
+<p class="text-white/85 text-sm mb-4 line-clamp-2">Customised facials to target your unique skin needs.</p>
+<span class="text-white flex items-center gap-2 group-hover:gap-4 transition-all duration-300 text-sm font-medium">Book This <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+</button>
+
+<!-- Card 4 -->
+<button data-open-modal data-treatment="Advanced Care" class="group text-left block border border-secondary bg-white rounded-xl overflow-hidden hover:shadow-lifted transition-shadow duration-300 mt-0 lg:mt-8" data-aos="fade-up" data-aos-delay="300">
+<div class="aspect-[4/5] image-hover-zoom relative">
+<img alt="A hand holding a serum bottle, representing advanced aesthetic treatments" class="w-full h-full object-cover"
+     src="https://images.unsplash.com/photo-1670201202961-dce15b9e6939?auto=format&fit=crop&w=800&q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<h3 class="font-display text-xl text-white mb-2">Advanced Care</h3>
+<p class="text-white/85 text-sm mb-4 line-clamp-2">Targeted solutions for complex aesthetic concerns.</p>
+<span class="text-white flex items-center gap-2 group-hover:gap-4 transition-all duration-300 text-sm font-medium">Book This <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+</button>
+
+</div>
+</section>
+
+<!-- ============ CINEMATIC FULL-WIDTH ============ -->
+<section class="relative py-32 md:py-44 my-section-md parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1765607476376-9574ea76b2ee?auto=format&fit=crop&w=1920&q=80');">
+<div class="absolute inset-0 bg-primary/55 z-0"></div>
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl mx-auto" data-aos="fade-up">
+<p class="underline-eyebrow font-body text-xs font-semibold text-white/80 tracking-[0.2em] uppercase mb-6 justify-center">Personalised Aesthetic Care</p>
+<h2 class="font-display text-[34px] leading-[1.2] md:text-[56px] md:leading-[1.12] text-white mb-8 text-balance">
+    Your Skin Deserves a Thoughtful Approach
+</h2>
+<button data-open-modal class="bg-white text-primary px-9 py-4 rounded hover:bg-secondary transition-colors duration-300 font-medium inline-flex items-center gap-2 shadow-lifted">
+    Book Your Consultation <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</section>
+
+<!-- ============ WHY DERMETHICS ============ -->
+<section class="py-section-md md:py-section-lg px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative" data-aos="fade-right">
+<div class="relative">
+<img alt="Elegant woman with clear, glowing skin, softly lit" class="w-full h-auto rounded-2xl shadow-lifted"
+     src="https://images.unsplash.com/photo-1581182830442-e8bc7babbf15?auto=format&fit=crop&w=1200&q=80"/>
+<div class="focus-ring absolute -top-6 -right-6 w-24 h-24 hidden md:block"></div>
+</div>
+<div class="absolute -right-8 -bottom-8 w-2/3 hidden md:block">
+<img alt="Smiling patient with healthy, radiant skin" class="w-full h-auto rounded-2xl border-4 border-white shadow-lifted"
+     src="https://images.unsplash.com/photo-1609357912333-27872db33d5c?auto=format&fit=crop&w=800&q=80"/>
+</div>
+</div>
+
+<div data-aos="fade-left" data-aos-delay="100" class="md:pl-10">
+<p class="underline-eyebrow font-body text-xs font-semibold text-accent-deep tracking-[0.2em] uppercase mb-5">Why Dermethics</p>
+<h2 class="font-display text-[30px] md:text-[36px] text-primary mb-6 leading-tight">Expertise You Can Trust. Results That Feel Like You.</h2>
+<p class="text-neutral-muted text-base md:text-lg leading-relaxed mb-10">
+    We combine international medical standards with an artistic approach to aesthetics, ensuring treatments that are safe, effective, and beautifully natural.
+</p>
+<div class="space-y-6">
+<div class="border-b border-secondary pb-6" data-aos="fade-up" data-aos-delay="150">
+<h4 class="font-display text-lg text-primary mb-2">Medical Expertise</h4>
+<p class="text-neutral-muted">Treatments performed by highly qualified medical professionals.</p>
+</div>
+<div class="border-b border-secondary pb-6" data-aos="fade-up" data-aos-delay="220">
+<h4 class="font-display text-lg text-primary mb-2">International Training</h4>
+<p class="text-neutral-muted">Utilising techniques and protocols verified by global aesthetic boards.</p>
+</div>
+<div class="border-b border-secondary pb-6" data-aos="fade-up" data-aos-delay="290">
+<h4 class="font-display text-lg text-primary mb-2">Personalised Approach</h4>
+<p class="text-neutral-muted">Bespoke treatment plans designed for your unique skin journey.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ DR. RAZA ============ -->
+<section class="py-section-md md:py-section-lg px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="bg-surface-alt rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+<div class="order-2 md:order-1 p-8 sm:p-10 md:p-16" data-aos="fade-right">
+<p class="underline-eyebrow font-body text-xs font-semibold text-accent-deep tracking-[0.2em] uppercase mb-5">Meet Dr. Raza</p>
+<h2 class="font-display text-[28px] md:text-[34px] text-primary mb-6 leading-tight">16+ Years of Experience in Aesthetic Care</h2>
+<p class="text-neutral-muted leading-relaxed mb-6">
+    With over 16 years of dedicated experience in aesthetic medicine, Dr. Raza combines technical mastery with an artist's eye. Holding dual international certifications, he specialises in creating personalised treatment plans that respect your natural anatomy while delivering transformative results.
+</p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent-deep text-xl">check</span>
+<span class="text-neutral-muted">American Board Certified in Aesthetic Medicine</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent-deep text-xl">check</span>
+<span class="text-neutral-muted">Specialist in Non-Surgical Facial Rejuvenation</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent-deep text-xl">check</span>
+<span class="text-neutral-muted">Korean Certified in Advanced Aesthetic Techniques</span>
+</li>
+</ul>
+<button data-open-modal class="border border-primary text-primary px-8 py-3.5 rounded hover:bg-primary hover:text-white transition-colors duration-300 inline-flex items-center gap-2 font-medium">
+    Meet Dr. Raza <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="order-1 md:order-2 h-full relative" data-aos="fade-left" data-aos-delay="100">
+<img alt="Professional portrait of Dr. Raza, aesthetic medicine specialist" class="w-full h-full object-cover min-h-[360px] md:min-h-[440px]"
+     src="https://images.unsplash.com/photo-1758691463582-11aea602cd4a?auto=format&fit=crop&w=1200&q=80"/>
+<div class="focus-ring absolute bottom-8 left-8 w-20 h-20 hidden md:block"></div>
+</div>
+</div>
+</section>
+
+<!-- ============ PATIENT EXPERIENCES ============ -->
+<section id="results" class="py-section-md md:py-section-lg px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="text-center mb-16" data-aos="fade-up">
+<p class="underline-eyebrow font-body text-xs font-semibold text-accent-deep tracking-[0.2em] uppercase mb-5 justify-center">Patient Experiences</p>
+<h2 class="font-display text-[30px] md:text-[36px] text-primary mb-4">A More Confident You</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+<div class="bg-surface-alt p-8 rounded-xl border border-secondary" data-aos="fade-up">
+<div class="flex text-accent-deep mb-4 gap-0.5">
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+</div>
+<p class="text-neutral-muted italic mb-6 leading-relaxed">"The care and attention to detail at Dermethics is unmatched. I felt completely comfortable throughout my entire treatment."</p>
+<p class="text-xs font-semibold text-primary tracking-wide uppercase">— S. Ahmed</p>
+</div>
+
+<div class="bg-surface-alt p-8 rounded-xl border border-secondary" data-aos="fade-up" data-aos-delay="100">
+<div class="flex text-accent-deep mb-4 gap-0.5">
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+</div>
+<p class="text-neutral-muted italic mb-6 leading-relaxed">"Dr. Raza took the time to understand exactly what I wanted. The results are subtle and beautiful, exactly what I hoped for."</p>
+<p class="text-xs font-semibold text-primary tracking-wide uppercase">— M. Khan</p>
+</div>
+
+<div class="bg-surface-alt p-8 rounded-xl border border-secondary" data-aos="fade-up" data-aos-delay="200">
+<div class="flex text-accent-deep mb-4 gap-0.5">
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+</div>
+<p class="text-neutral-muted italic mb-6 leading-relaxed">"From the moment you walk in, the atmosphere is so relaxing. The HydraFacial left my skin glowing for weeks."</p>
+<p class="text-xs font-semibold text-primary tracking-wide uppercase">— A. Ali</p>
+</div>
+
+</div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faqs" class="py-section-md md:py-section-lg px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-4" data-aos="fade-right">
+<p class="underline-eyebrow font-body text-xs font-semibold text-accent-deep tracking-[0.2em] uppercase mb-5">FAQs</p>
+<h2 class="font-display text-[30px] md:text-[36px] text-primary mb-4 leading-tight">Common Questions, Answered</h2>
+<p class="text-neutral-muted">Can't find what you're looking for? Book a consultation and our team will walk you through everything in person.</p>
+</div>
+
+<div class="md:col-span-8" data-aos="fade-left" data-aos-delay="100">
+<div class="divide-y divide-secondary border-t border-b border-secondary" id="faq-list">
+
+<div class="faq-item py-2">
+<button class="faq-trigger w-full flex items-center justify-between gap-4 text-left py-5" aria-expanded="false">
+<span class="font-display text-lg md:text-xl text-primary">Is there any downtime after treatment?</span>
+<span class="material-symbols-outlined faq-icon text-accent-deep shrink-0">add</span>
+</button>
+<div class="faq-panel">
+<p class="text-neutral-muted pb-6 pr-8 leading-relaxed">Most of our treatments, including HydraFacial and laser hair removal, involve little to no downtime, so you can return to your day right after your appointment. Your provider will walk you through what to expect for your specific treatment plan during your consultation.</p>
+</div>
+</div>
+
+<div class="faq-item py-2">
+<button class="faq-trigger w-full flex items-center justify-between gap-4 text-left py-5" aria-expanded="false">
+<span class="font-display text-lg md:text-xl text-primary">How many sessions will I need?</span>
+<span class="material-symbols-outlined faq-icon text-accent-deep shrink-0">add</span>
+</button>
+<div class="faq-panel">
+<p class="text-neutral-muted pb-6 pr-8 leading-relaxed">This depends on your skin, goals and the treatment chosen. Some patients see meaningful results after one session, while others benefit from a short course of treatments. We'll recommend a personalised plan at your first visit.</p>
+</div>
+</div>
+
+<div class="faq-item py-2">
+<button class="faq-trigger w-full flex items-center justify-between gap-4 text-left py-5" aria-expanded="false">
+<span class="font-display text-lg md:text-xl text-primary">Are your treatments medically supervised?</span>
+<span class="material-symbols-outlined faq-icon text-accent-deep shrink-0">add</span>
+</button>
+<div class="faq-panel">
+<p class="text-neutral-muted pb-6 pr-8 leading-relaxed">Yes. Dermethics is led by Dr. Raza, who holds American Board and Korean certifications in aesthetic medicine, and every treatment plan is designed and overseen by our qualified medical team.</p>
+</div>
+</div>
+
+<div class="faq-item py-2">
+<button class="faq-trigger w-full flex items-center justify-between gap-4 text-left py-5" aria-expanded="false">
+<span class="font-display text-lg md:text-xl text-primary">What should I expect at my first consultation?</span>
+<span class="material-symbols-outlined faq-icon text-accent-deep shrink-0">add</span>
+</button>
+<div class="faq-panel">
+<p class="text-neutral-muted pb-6 pr-8 leading-relaxed">We begin with a thorough skin assessment and a conversation about your goals. From there, we'll recommend a tailored treatment plan, walk you through timelines and pricing, and answer any questions you have — no pressure, no obligation.</p>
+</div>
+</div>
+
+<div class="faq-item py-2">
+<button class="faq-trigger w-full flex items-center justify-between gap-4 text-left py-5" aria-expanded="false">
+<span class="font-display text-lg md:text-xl text-primary">Where is the clinic located?</span>
+<span class="material-symbols-outlined faq-icon text-accent-deep shrink-0">add</span>
+</button>
+<div class="faq-panel">
+<p class="text-neutral-muted pb-6 pr-8 leading-relaxed">Dermethics is located in DHA Phase 5, Lahore. Full address details and directions are shared once your consultation is confirmed.</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="relative py-28 md:py-36 mt-section-md">
+<div class="absolute inset-0 z-0">
+<img alt="Elegant woman with radiant, healthy skin" class="w-full h-full object-cover"
+     src="https://images.unsplash.com/photo-1728727242233-0924178c1fb1?auto=format&fit=crop&w=1920&q=80"/>
+<div class="absolute inset-0 bg-white/78"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile max-w-3xl mx-auto" data-aos="fade-up">
+<p class="underline-eyebrow font-body text-xs font-semibold text-accent-deep tracking-[0.2em] uppercase mb-5 justify-center">Ready to Begin?</p>
+<h2 class="font-display text-[32px] md:text-[52px] leading-tight text-primary mb-6 text-balance">
+    Ready to Begin Your Skin Journey?
+</h2>
+<p class="text-neutral-muted text-base md:text-lg mb-9">Schedule a consultation with our experts to discover your personalised treatment plan.</p>
+<button data-open-modal class="bg-primary text-white px-9 py-4 rounded hover:bg-primary-deep transition-colors duration-300 font-medium inline-flex items-center gap-2 shadow-lifted">
+    Book a Consultation <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-surface-alt w-full border-t border-secondary pt-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-gutter py-12 max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="font-display text-xl text-primary mb-6 tracking-tight">DERMETHICS</div>
+<p class="text-neutral-muted text-sm leading-relaxed mb-4">
+    Elevating confidence through expert aesthetic care in a serene, luxury setting.
+</p>
+</div>
+<div class="md:col-span-1">
+<h4 class="text-[11px] font-semibold text-primary tracking-[0.15em] uppercase mb-4">Clinic</h4>
+<ul class="space-y-3 text-sm">
+<li><a class="text-neutral-muted hover:text-primary transition-colors" href="#about">About</a></li>
+<li><a class="text-neutral-muted hover:text-primary transition-colors" href="#treatments">Treatments</a></li>
+<li><a class="text-neutral-muted hover:text-primary transition-colors" href="#results">Results</a></li>
+<li><a class="text-neutral-muted hover:text-primary transition-colors" href="#faqs">FAQs</a></li>
+<li><button data-open-modal class="text-neutral-muted hover:text-primary transition-colors text-left">Contact</button></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h4 class="text-[11px] font-semibold text-primary tracking-[0.15em] uppercase mb-4">Social</h4>
+<ul class="space-y-3 text-sm">
+<li><a class="text-neutral-muted hover:text-primary transition-colors" href="#" rel="noopener">Instagram: @dermethics</a></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h4 class="text-[11px] font-semibold text-primary tracking-[0.15em] uppercase mb-4">Location</h4>
+<p class="text-neutral-muted text-sm leading-relaxed">
+    DHA Phase 5,<br/>
+    Lahore, Pakistan
+</p>
+</div>
+</div>
+<div class="border-t border-secondary px-margin-mobile md:px-gutter py-6 text-center">
+<p class="text-[11px] text-neutral-muted/70 tracking-wide">
+    © 2026 Dermethics Luxury Aesthetic Clinic. DHA Phase 5, Lahore. All Rights Reserved.
+</p>
+</div>
+</footer>
+
+<!-- ============ BOOKING MODAL ============ -->
+<div id="booking-modal" data-state="closed" class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+<div id="modal-backdrop" class="absolute inset-0 bg-primary-deep/50 backdrop-blur-sm"></div>
+
+<div class="modal-panel relative bg-white w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl shadow-lifted max-h-[92vh] overflow-y-auto">
+<div class="flex items-center justify-between px-7 pt-7 pb-2">
+<h3 id="modal-title" class="font-display text-2xl text-primary">Book a Consultation</h3>
+<button id="modal-close" aria-label="Close booking form" class="text-neutral-muted hover:text-primary transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+
+<!-- Form state -->
+<form id="booking-form" class="px-7 pb-8 pt-4">
+<p class="text-neutral-muted text-sm mb-6">Tell us a little about you and we'll confirm a time that works for you.</p>
+
+<div class="space-y-4">
+<div>
+<label for="bf-name" class="block text-xs font-semibold text-primary tracking-wide uppercase mb-2">Full Name</label>
+<input id="bf-name" name="name" type="text" required class="w-full border border-secondary focus:border-primary rounded-md px-4 py-3 text-sm outline-none transition-colors" placeholder="Your name">
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label for="bf-phone" class="block text-xs font-semibold text-primary tracking-wide uppercase mb-2">Phone</label>
+<input id="bf-phone" name="phone" type="tel" required class="w-full border border-secondary focus:border-primary rounded-md px-4 py-3 text-sm outline-none transition-colors" placeholder="03XX XXXXXXX">
+</div>
+<div>
+<label for="bf-email" class="block text-xs font-semibold text-primary tracking-wide uppercase mb-2">Email</label>
+<input id="bf-email" name="email" type="email" required class="w-full border border-secondary focus:border-primary rounded-md px-4 py-3 text-sm outline-none transition-colors" placeholder="you@email.com">
+</div>
+</div>
+<div>
+<label for="bf-treatment" class="block text-xs font-semibold text-primary tracking-wide uppercase mb-2">Treatment of Interest</label>
+<select id="bf-treatment" name="treatment" class="w-full border border-secondary focus:border-primary rounded-md px-4 py-3 text-sm outline-none transition-colors bg-white">
+<option>Not sure yet — recommend for me</option>
+<option>Laser Hair Removal</option>
+<option>HydraFacial</option>
+<option>Skin & Facial</option>
+<option>Advanced Care</option>
+</select>
+</div>
+<div>
+<label for="bf-date" class="block text-xs font-semibold text-primary tracking-wide uppercase mb-2">Preferred Date</label>
+<input id="bf-date" name="date" type="date" class="w-full border border-secondary focus:border-primary rounded-md px-4 py-3 text-sm outline-none transition-colors">
+</div>
+<div>
+<label for="bf-message" class="block text-xs font-semibold text-primary tracking-wide uppercase mb-2">Message <span class="normal-case text-neutral-muted font-normal">(optional)</span></label>
+<textarea id="bf-message" name="message" rows="3" class="w-full border border-secondary focus:border-primary rounded-md px-4 py-3 text-sm outline-none transition-colors resize-none" placeholder="Anything you'd like us to know"></textarea>
+</div>
+</div>
+
+<button type="submit" class="w-full bg-primary text-white py-4 rounded font-medium mt-7 hover:bg-primary-deep transition-colors duration-300">
+    Request Appointment
+</button>
+<p class="text-[11px] text-neutral-muted text-center mt-4">This is a demo form and does not send a real request.</p>
+</form>
+
+<!-- Success state -->
+<div id="booking-success" class="hidden px-7 pb-10 pt-4 text-center">
+<div class="w-16 h-16 rounded-full bg-accent/15 text-accent-deep flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-3xl">check</span>
+</div>
+<h4 class="font-display text-2xl text-primary mb-3">Request Received</h4>
+<p class="text-neutral-muted text-sm mb-8 max-w-xs mx-auto">Thank you, <span id="success-name">there</span>. Our team will reach out shortly to confirm your appointment.</p>
+<button id="booking-done" class="border border-primary text-primary px-8 py-3 rounded font-medium hover:bg-primary hover:text-white transition-colors duration-300">Done</button>
+</div>
+</div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic', offset: 60 });
+
+    /* ---------- Nav scroll state ---------- */
+    const header = document.getElementById('main-nav');
+    const onScroll = () => {
+        if (window.scrollY > 40) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ---------- Active nav link on scroll ---------- */
+    const sections = ['home','about','treatments','results','faqs'].map(id => document.getElementById(id)).filter(Boolean);
+    const navLinks = document.querySelectorAll('.nav-link');
+    const setActive = () => {
+        let current = sections[0];
+        sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 140) current = sec; });
+        navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === '#' + current.id;
+            link.classList.toggle('text-primary', isActive);
+            link.classList.toggle('font-medium', isActive);
+            link.classList.toggle('text-neutral-muted', !isActive);
+        });
+    };
+    window.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+
+    /* ---------- Mobile menu ---------- */
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobilePanel = document.getElementById('mobile-panel');
+    const mobileIcon = document.getElementById('mobile-menu-icon');
+    let mobileOpen = false;
+    function setMobileMenu(open) {
+        mobileOpen = open;
+        mobileBtn.setAttribute('aria-expanded', String(open));
+        mobileIcon.textContent = open ? 'close' : 'menu';
+        if (open) {
+            mobilePanel.style.maxHeight = mobilePanel.scrollHeight + 'px';
+            mobilePanel.style.opacity = '1';
+        } else {
+            mobilePanel.style.maxHeight = '0px';
+            mobilePanel.style.opacity = '0';
+        }
+    }
+    mobileBtn.addEventListener('click', () => setMobileMenu(!mobileOpen));
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => setMobileMenu(false));
+    });
+
+    /* ---------- FAQ accordion ---------- */
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const trigger = item.querySelector('.faq-trigger');
+        trigger.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                if (openItem !== item) {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+                }
+            });
+            item.classList.toggle('open', !isOpen);
+            trigger.setAttribute('aria-expanded', String(!isOpen));
+        });
+    });
+
+    /* ---------- Booking modal ---------- */
+    const modal = document.getElementById('booking-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const treatmentSelect = document.getElementById('bf-treatment');
+    const bookingForm = document.getElementById('booking-form');
+    const bookingSuccess = document.getElementById('booking-success');
+    const bookingDone = document.getElementById('booking-done');
+    const successName = document.getElementById('success-name');
+    let lastFocused = null;
+
+    function openModal(treatment) {
+        lastFocused = document.activeElement;
+        modal.dataset.state = 'open';
+        document.body.style.overflow = 'hidden';
+        if (treatment) {
+            [...treatmentSelect.options].forEach(opt => { if (opt.textContent === treatment) treatmentSelect.value = treatment; });
+        }
+        setTimeout(() => document.getElementById('bf-name').focus(), 200);
+    }
+    function closeModal() {
+        modal.dataset.state = 'closed';
+        document.body.style.overflow = '';
+        if (lastFocused) lastFocused.focus();
+        setTimeout(() => {
+            bookingForm.classList.remove('hidden');
+            bookingSuccess.classList.add('hidden');
+            bookingForm.reset();
+        }, 350);
+    }
+    document.querySelectorAll('[data-open-modal]').forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn.dataset.treatment));
+    });
+    modalClose.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.dataset.state === 'open') closeModal(); });
+
+    bookingForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('bf-name').value.trim().split(' ')[0] || 'there';
+        successName.textContent = name;
+        bookingForm.classList.add('hidden');
+        bookingSuccess.classList.remove('hidden');
+    });
+    bookingDone.addEventListener('click', closeModal);
+</script>
+</body>
+</html>
